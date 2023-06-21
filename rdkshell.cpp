@@ -411,18 +411,9 @@ namespace RdkShell
         #endif
 
         #ifdef RDKSHELL_ENABLE_FORCE_1080
-        std::ifstream file720("/tmp/rdkshell720");
-        if (file720.good())
-        {
             Logger::log(LogLevel::Information,  "!!!!! forcing 720 start!");
             RdkShell::EssosInstance::instance()->initialize(false, 1280, 720);
             gForce720 = true;
-        }
-        else
-        {
-            Logger::log(LogLevel::Information,  "!!!!! forcing 1080 start!");
-            RdkShell::EssosInstance::instance()->initialize(false, 1920, 1080);
-        }
         #else
         RdkShell::EssosInstance::instance()->initialize(false);
         #endif //RDKSHELL_ENABLE_FORCE_1080
